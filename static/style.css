@@ -8,7 +8,7 @@ body {
 
 /* Centered Container */
 .container {
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
     padding: 20px;
     background: white;
@@ -58,14 +58,29 @@ button:hover {
 }
 
 /* Recipe Output */
+.recipes {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.recipes h2 {
+    color: #444;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.recipes ul {
+    list-style-type: none;
+    padding: 0;
+}
+
 .recipe {
-    margin-top: 20px;
-    padding: 15px;
     background: #f9f9f9;
+    padding: 15px;
+    margin-bottom: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    text-align: left;
-    line-height: 1.5em;
-    color: #333;
     font-size: 1.1em;
+    color: #333;
+    line-height: 1.5;
 }
