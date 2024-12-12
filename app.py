@@ -29,6 +29,8 @@ def generate_recipe():
                     "You are a highly creative recipe generator. Your goal is to create recipes that match "
                     "the user's specified requirements or style as closely as possible. For example, if they specify "
                     "a Japanese dish, ensure the recipe aligns with Japanese cuisine and their provided details."
+                    "If they specify a difficulty, give them recipies which align with the difficulty(amount of "
+                    "ingredients, cook time, utensils / cooking devices needed)."
                 )},
                 {"role": "user", "content": f"Create a recipe based on these specifications: {ingredients}."}
             ]
