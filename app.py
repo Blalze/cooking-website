@@ -19,14 +19,18 @@ def home():
 def generate_recipe():
     ingredients = request.form.get("ingredients")
 
-    # Call the OpenAI API to generate three recipes
+    # Generate recipes with user-specified styles or requirements
     recipes = []
-    for i in range(3):
+    for i in range(3):  # Generate three recipe variations
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=[
-                {"role": "system", "content": "You are a creative recipe generator."},
-                {"role": "user", "content": f"Generate a unique recipe using these ingredients: {ingredients}."}
+                {"role": "system", "content": (
+                    "You are a highly creative recipe generator. Your goal is to create recipes that match "
+                    "the user's specified requirements or style as closely as possible. For example, if they specify "
+                    "a Japanese dish, ensure the recipe aligns with Japanese cuisine and their provided details."
+                )},
+                {"role": "user", "content": f"Create a recipe based on these specifications: {ingredients}."}
             ]
         )
         recipes.append(response['choices'][0]['message']['content'].strip())
@@ -40,17 +44,20 @@ def customize_recipe():
     original_recipe = request.form.get("original_recipe")
     feedback = request.form.get("feedback")
 
-    # Use OpenAI API to customize the recipe based on feedback
+    # Customize the recipe based on user feedback
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[
-            {"role": "system", "content": "You are a creative recipe customizer."},
-            {"role": "user", "content": f"Here is the original recipe: {original_recipe}. Customize it based on this feedback: {feedback}."}
+            {"role": "system", "content": (
+                "You are a recipe customizer. Your task is to adjust recipes to meet the user's feedback "
+                "and maintain the original style and flavor profile as much as possible."
+            )},
+            {"role": "user", "content": f"Here is the original recipe: {original_recipe}. Adjust it based on this feedback: {feedback}."}
         ]
     )
     customized_recipe = response['choices'][0]['message']['content'].strip()
 
-    # Render the homepage with the updated recipe
+    # Render the customized recipe
     return render_template("index.html", customized_recipe=customized_recipe)
 
 # Route to handle recipe download
