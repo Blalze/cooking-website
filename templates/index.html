@@ -44,6 +44,18 @@
         <div class="customized-recipe">
             <h2>Customized Recipe:</h2>
             <pre>{{ customized_recipe }}</pre>
+            <!-- Further Customize Button -->
+            <form action="/customize" method="post">
+                <input type="hidden" name="original_recipe" value="{{ customized_recipe }}">
+                <label for="feedback">Further Customization Feedback:</label>
+                <input type="text" id="feedback" name="feedback" placeholder="e.g., make it gluten-free" required>
+                <button type="submit">Customize Again</button>
+            </form>
+            <!-- Download Button -->
+            <form action="/download" method="post">
+                <input type="hidden" name="recipe" value="{{ customized_recipe }}">
+                <button type="submit">Download (.txt)</button>
+            </form>
         </div>
         {% endif %}
     </div>
