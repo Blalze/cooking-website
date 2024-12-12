@@ -31,8 +31,8 @@ def generate_recipe():
     # Extract the recipe from the response
     recipe = response['choices'][0]['message']['content'].strip()
 
-    # Return the recipe
-    return f"<h1>Generated Recipe</h1><p>{recipe}</p>"
+    # Render the recipe on the homepage
+    return render_template("index.html", recipe=recipe)
 
 # Run the Flask app
 if __name__ == "__main__":
