@@ -12,12 +12,19 @@
         <form action="/generate" method="post">
             <label for="ingredients">Enter Ingredients (comma-separated):</label>
             <input type="text" id="ingredients" name="ingredients" placeholder="e.g., chicken, rice, carrots" required>
-            <button type="submit">Generate Recipe</button>
+            <button type="submit">Generate Recipes</button>
         </form>
-        {% if recipe %}
-        <div class="recipe">
-            <h2>Your Recipe:</h2>
-            <p>{{ recipe }}</p>
+
+        {% if recipes %}
+        <div class="recipes">
+            <h2>Your Recipes:</h2>
+            <ul>
+                {% for recipe in recipes %}
+                <li class="recipe">
+                    <p>{{ recipe }}</p>
+                </li>
+                {% endfor %}
+            </ul>
         </div>
         {% endif %}
     </div>
