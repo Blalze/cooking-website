@@ -21,7 +21,7 @@
             <ul>
                 {% for recipe in recipes %}
                 <li class="recipe">
-                    <p>{{ recipe }}</p>
+                    <pre>{{ recipe }}</pre>
                     <!-- Customize Button -->
                     <form action="/customize" method="post">
                         <input type="hidden" name="original_recipe" value="{{ recipe }}">
