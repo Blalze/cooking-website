@@ -50,7 +50,7 @@ def customize_recipe():
     )
     customized_recipe = response['choices'][0]['message']['content'].strip()
 
-    # Return the updated recipe
+    # Render the homepage with the updated recipe
     return render_template("index.html", customized_recipe=customized_recipe)
 
 # Route to handle recipe download
