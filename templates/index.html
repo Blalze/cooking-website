@@ -22,6 +22,18 @@
                 {% for recipe in recipes %}
                 <li class="recipe">
                     <p>{{ recipe }}</p>
+                    <!-- Customize Button -->
+                    <form action="/customize" method="post">
+                        <input type="hidden" name="original_recipe" value="{{ recipe }}">
+                        <label for="feedback">Customization Feedback:</label>
+                        <input type="text" id="feedback" name="feedback" placeholder="e.g., make it vegan" required>
+                        <button type="submit">Customize</button>
+                    </form>
+                    <!-- Download Button -->
+                    <form action="/download" method="post">
+                        <input type="hidden" name="recipe" value="{{ recipe }}">
+                        <button type="submit">Download (.txt)</button>
+                    </form>
                 </li>
                 {% endfor %}
             </ul>
