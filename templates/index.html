@@ -39,6 +39,13 @@
             </ul>
         </div>
         {% endif %}
+
+        {% if customized_recipe %}
+        <div class="customized-recipe">
+            <h2>Customized Recipe:</h2>
+            <pre>{{ customized_recipe }}</pre>
+        </div>
+        {% endif %}
     </div>
 </body>
 </html>
